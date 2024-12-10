@@ -143,9 +143,9 @@ contract ImpermaxLiquidator is IImpermaxLiquidator {
     //
 
     /// Checks allowance and approves if necessary
-    function _approve(IERC20 token, uint256 amount) internal {
-        if (token.allowance(address(this), address(router)) >= amount) return;
-        token.approve(address(router), type(uint256).max);
+    function _approve(address token, uint256 amount) internal {
+        if (IERC20(token).allowance(address(this), address(router)) >= amount) return;
+        IERC20(token).approve(address(router), type(uint256).max);
     }
 
     // Liquidate all positions
@@ -173,13 +173,16 @@ contract ImpermaxLiquidator is IImpermaxLiquidator {
         returns (uint256 seizedTokens)
     {
         if (repayAmount > 0) {
-            IERC20(token).approve(address(router), repayAmount);
+            // Approve router if neeeded
+            _approve(token, repayAmount);
 
+            // Liquidate and receive collateral
             (, seizedTokens) =
                 router.liquidate(address(borrowable), repayAmount, borrower, address(this), block.timestamp);
 
             emit Liquidate(borrower, address(borrowable), seizedTokens);
         }
+
         return seizedTokens;
     }
 
