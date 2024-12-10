@@ -9,6 +9,7 @@ interface IImpermaxLiquidator {
     error UnauthorizedCallback();
     error PositionNotLiquidatable();
     error InsufficientSeizedTokens();
+    error InsufficientFlashAmount();
 
     function router() external view returns (IRouter03);
 

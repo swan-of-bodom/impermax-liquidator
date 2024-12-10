@@ -30,6 +30,8 @@ contract ImpermaxLiquidator is IImpermaxLiquidator {
         (uint256 flashAmount, uint256 borrow0, uint256 borrow1) =
             optimalFlashRedeem(borrower, borrowable0, borrowable1, collateral);
 
+        if (flashAmount == 0) revert InsufficientFlashAmount();
+
         bytes memory data = abi.encode(
             FlashCallbackData({
                 borrower: borrower,
