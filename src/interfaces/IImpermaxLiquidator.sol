@@ -37,7 +37,9 @@ interface IImpermaxLiquidator {
 
     function impermaxRedeem(address sender, uint256 redeemAmount, bytes calldata data) external;
 
-    event FlashLiquidation(address indexed liquidator, address indexed borrower, uint256 seizedTokens, uint256 redeemAmount);
+    event FlashLiquidation(
+        address indexed liquidator, address indexed borrower, uint256 seizedTokens, uint256 redeemAmount
+    );
 
     event Liquidate(address indexed borrower, address indexed borrowable, uint256 seizedTokens);
 
