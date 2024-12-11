@@ -33,8 +33,7 @@ contract ImpermaxLiquidatorTest is Test {
         (ICollateral collateral, IBorrowable borrowable0, IBorrowable borrowable1) =
             impermaxLiquidator.router().getLendingPool(UNISWAP_V2_PAIR);
 
-        uint256 flashAmount =
-            impermaxLiquidator.optimalFlashRedeem(BORROWER, borrowable0, borrowable1, collateral);
+        uint256 flashAmount = impermaxLiquidator.optimalFlashRedeem(BORROWER, borrowable0, borrowable1, collateral);
 
         assertGt(flashAmount, 0, "Flash amount should be greater than 0");
     }

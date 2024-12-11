@@ -12,22 +12,21 @@ contract ImpermaxLiquidator is IImpermaxLiquidator {
     /// @inheritdoc IImpermaxLiquidator
     IRouter03 public immutable router;
 
+    /// The Impermax router, based on the type of pools we're liquidating (ie. stable/v2v2/sol_v2/etc.)
     constructor(address _router) {
-        /// The Impermax router, based on the type of pools we're liquidating (ie. stable/v2v2/sol_v2/etc.)
         router = IRouter03(_router);
     }
 
     /// @inheritdoc IImpermaxLiquidator
     function flashLiquidate(address borrower, address uniswapV2Pair) external {
         // Get lending pool for this pair
-        (ICollateral collateral, IBorrowable borrowable0, IBorrowable borrowable1) =
-            router.getLendingPool(uniswapV2Pair);
+        (ICollateral collateral, IBorrowable borrowable0, IBorrowable borrowable1) = getLendingPool(uniswapV2Pair);
 
         // Accrue interest in borrowables and check if position is liquidatable
         if (!_isPositionUnderwater(borrower, collateral, borrowable0, borrowable1)) revert PositionNotLiquidatable();
 
         // Calculate optimal amount of UniswapV2Pair to flash redeem
-        (uint256 flashAmount) = optimalFlashRedeem(borrower, borrowable0, borrowable1, collateral);
+        uint256 flashAmount = optimalFlashRedeem(borrower, borrowable0, borrowable1, collateral);
 
         // Flash redeem only for leveraged positions (borrowed from both borrowables)
         if (flashAmount == 0) revert InsufficientFlashAmount();
@@ -72,29 +71,34 @@ contract ImpermaxLiquidator is IImpermaxLiquidator {
         uint256 seizedTokens = _liquidatePositions(calleeData, token0, token1, repayAmount0, repayAmount1);
         if (seizedTokens == 0) revert InsufficientSeizedTokens();
 
-        // 4. Return the equivalent of the flash loaned LP in collateral tokens (`flashRedeem` rounds up)
+        // 4. Return the equivalent of the flash loaned LP to the collateral (`flashRedeem` rounds up)
         //    `seizedTokens` / `redeemAmount` = liquidation incentive
         calleeData.collateral.transfer(msg.sender, redeemAmount + 1);
 
         // 5. Send collateral profit to liquidator
-        _sendSeizedCollateral(calleeData.collateral);
+        calleeData.collateral.transfer(tx.origin, seizedTokens - redeemAmount - 1);
 
-        emit FlashLiquidation(tx.origin, calleeData.borrower, seizedTokens, redeemAmount);
+        /// @custom:event FlashLiquidate
+        emit FlashLiquidate(tx.origin, calleeData.borrower, seizedTokens, redeemAmount);
     }
 
-    /// @notice Helpful for static calls
     /// @inheritdoc IImpermaxLiquidator
     function isPositionUnderwater(address borrower, address uniswapV2Pair) external returns (bool) {
         // Get lending pool for this pair
-        (ICollateral collateral, IBorrowable borrowable0, IBorrowable borrowable1) =
-            router.getLendingPool(uniswapV2Pair);
-        (, uint256 shortfall) = getAccountLiquidity(borrower, collateral, borrowable0, borrowable1);
-        return shortfall > 0;
+        (ICollateral collateral, IBorrowable borrowable0, IBorrowable borrowable1) = getLendingPool(uniswapV2Pair);
+
+        // True if user has shortfall
+        return _isPositionUnderwater(borrower, collateral, borrowable0, borrowable1);
     }
 
     //
     // Public
     //
+
+    /// @inheritdoc IImpermaxLiquidator
+    function getLendingPool(address uniswapV2Pair) public view returns (ICollateral, IBorrowable, IBorrowable) {
+        return router.getLendingPool(uniswapV2Pair);
+    }
 
     /// @inheritdoc IImpermaxLiquidator
     function getAccountLiquidity(
@@ -134,7 +138,7 @@ contract ImpermaxLiquidator is IImpermaxLiquidator {
         flashAmount = lpNeededForToken0 > lpNeededForToken1 ? lpNeededForToken1 : lpNeededForToken0;
 
         // Amount of stakedLP we need, take into account the liq. penalty and exchange rate
-        return ((flashAmount * 1e18) / collateral.liquidationPenalty() * 1e18) / stakedLPToken.exchangeRate();
+        return (flashAmount * 1e36) / (collateral.liquidationPenalty() * stakedLPToken.exchangeRate());
     }
 
     //
@@ -147,6 +151,7 @@ contract ImpermaxLiquidator is IImpermaxLiquidator {
         IERC20(token).approve(address(router), type(uint256).max);
     }
 
+    /// Returns whether positions can be liquidated or not
     function _isPositionUnderwater(
         address borrower,
         ICollateral collateral,
@@ -177,7 +182,7 @@ contract ImpermaxLiquidator is IImpermaxLiquidator {
         return seizedCollateral;
     }
 
-    // Liquidates a single position
+    // Liquidates a single position, event kept for reporting purposes for new functions.
     function _liquidatePosition(address borrower, IBorrowable borrowable, address token, uint256 repayAmount)
         internal
         returns (uint256 seizedTokens)
@@ -190,16 +195,10 @@ contract ImpermaxLiquidator is IImpermaxLiquidator {
             (, seizedTokens) =
                 router.liquidate(address(borrowable), repayAmount, borrower, address(this), block.timestamp);
 
+            /// @custom:event Liquidate
             emit Liquidate(borrower, address(borrowable), seizedTokens);
         }
 
         return seizedTokens;
-    }
-
-    // To be called after any flash liquidation.
-    // The profit should be equal to: `seizedTokens` - `redeemAmount`
-    function _sendSeizedCollateral(ICollateral collateral) internal {
-        uint256 seizedCollateral = collateral.balanceOf(address(this));
-        if (seizedCollateral > 0) collateral.transfer(tx.origin, seizedCollateral);
     }
 }

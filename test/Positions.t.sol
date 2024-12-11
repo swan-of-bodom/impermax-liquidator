@@ -70,7 +70,7 @@ contract PositionsTest is Test {
                 IERC20 token0 = IERC20(IPool(uniswapV2Pair).token0());
                 IERC20 token1 = IERC20(IPool(uniswapV2Pair).token1());
                 console.log("Underlying: ", token0.symbol(), token1.symbol());
-            } 
+            }
         }
     }
 }

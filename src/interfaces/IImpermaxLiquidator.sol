@@ -31,9 +31,14 @@ interface IImpermaxLiquidator {
 
     function flashLiquidate(address borrower, address uniswapV2Pair) external;
 
+    function getLendingPool(address uniswapV2Pair)
+        external
+        view
+        returns (ICollateral collateral, IBorrowable borrowable0, IBorrowable borrowable1);
+
     function impermaxRedeem(address sender, uint256 redeemAmount, bytes calldata data) external;
 
-    event FlashLiquidation(
+    event FlashLiquidate(
         address indexed liquidator, address indexed borrower, uint256 seizedTokens, uint256 redeemAmount
     );
 
