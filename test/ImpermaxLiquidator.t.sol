@@ -23,10 +23,7 @@ contract ImpermaxLiquidatorTest is Test {
     }
 
     function test__isPositionUnderwater() public {
-        (ICollateral collateral, IBorrowable borrowable0, IBorrowable borrowable1) =
-            impermaxLiquidator.router().getLendingPool(UNISWAP_V2_PAIR);
-
-        bool isUnderwater = impermaxLiquidator.isPositionUnderwater(BORROWER, collateral, borrowable0, borrowable1);
+        bool isUnderwater = impermaxLiquidator.isPositionUnderwater(BORROWER, UNISWAP_V2_PAIR);
 
         assertTrue(isUnderwater, "Position not liquidatable");
     }
@@ -36,12 +33,10 @@ contract ImpermaxLiquidatorTest is Test {
         (ICollateral collateral, IBorrowable borrowable0, IBorrowable borrowable1) =
             impermaxLiquidator.router().getLendingPool(UNISWAP_V2_PAIR);
 
-        (uint256 flashAmount, uint256 borrow0, uint256 borrow1) =
+        uint256 flashAmount =
             impermaxLiquidator.optimalFlashRedeem(BORROWER, borrowable0, borrowable1, collateral);
 
         assertGt(flashAmount, 0, "Flash amount should be greater than 0");
-        assertGt(borrow0, 0, "Borrow0 should be greater than 0");
-        assertGt(borrow1, 0, "Borrow1 should be greater than 0");
     }
 
     function test__flashLiquidate() public {

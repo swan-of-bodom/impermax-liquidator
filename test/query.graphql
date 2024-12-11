@@ -1,0 +1,18 @@
+query MyQuery {
+  borrowPositions(
+    orderBy: "borrowBalance"
+    orderDirection: "desc"
+    where: {factoryId: "0x02Ff7B4d96EeBF8c9B34Fae0418E591e11da3099"}
+  ) {
+    items {
+      userId
+      borrowable {
+        id
+        lendingPool {
+          pairId
+        }
+      }
+    }
+  }
+}
+

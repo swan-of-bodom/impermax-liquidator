@@ -1,0 +1,408 @@
+{
+  "data": {
+    "borrowPositions": {
+      "items": [
+        {
+          "userId": "0xd430f283c11f3fc8acfd43e63bc2d177fc19f503",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xe3167f148f3c97dea3d42cb9d6848a7d28b3a296"
+            }
+          }
+        },
+        {
+          "userId": "0xd430f283c11f3fc8acfd43e63bc2d177fc19f503",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x94d81405985a4c34eac4945d2b98c74258edd07f"
+            }
+          }
+        },
+        {
+          "userId": "0x807ed8405211a02c88b70e5a8ccc7e112a36b212",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x88b5068c4ed14d69c7093011149e7d5e93a0a98e"
+            }
+          }
+        },
+        {
+          "userId": "0xb59ca4dd00639ad606a61daded286031c3cb2535",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x88b5068c4ed14d69c7093011149e7d5e93a0a98e"
+            }
+          }
+        },
+        {
+          "userId": "0x4e9883c370087235ebdbc6611290d3e74150651d",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x7c80be56a6f23a3e598822648baafd7524fe1239"
+            }
+          }
+        },
+        {
+          "userId": "0x7800cf3d117f6fc17e0505c7eaaf1e0e9d1f7cad",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x7c80be56a6f23a3e598822648baafd7524fe1239"
+            }
+          }
+        },
+        {
+          "userId": "0xcb6586874cc04b01cc4fdb777de502cea7b3d6c1",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xe8f4895df06a0c69a9ba87509efdbbfbafe86c2d"
+            }
+          }
+        },
+        {
+          "userId": "0x2754178a3ca7987eddf56e7b98e8084986748b00",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x88b5068c4ed14d69c7093011149e7d5e93a0a98e"
+            }
+          }
+        },
+        {
+          "userId": "0xe174c7b1e5081f10b7bca87858073294f28e25cf",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x7c80be56a6f23a3e598822648baafd7524fe1239"
+            }
+          }
+        },
+        {
+          "userId": "0x6b903329d170d8f862ea1b48621ca3fe40cfe54c",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x7c80be56a6f23a3e598822648baafd7524fe1239"
+            }
+          }
+        },
+        {
+          "userId": "0x8e8adeb64bcd257fdd83645296045094d0cc1845",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xe8f4895df06a0c69a9ba87509efdbbfbafe86c2d"
+            }
+          }
+        },
+        {
+          "userId": "0x7226c7ca07056c655865216e04512e9b28782959",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xbd4b6e9992bef375a14793b18d2a1cc8d710d45b"
+            }
+          }
+        },
+        {
+          "userId": "0xcb6586874cc04b01cc4fdb777de502cea7b3d6c1",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x8a16a1ca6c303122e5fa985150a2b742b3aa5fb7"
+            }
+          }
+        },
+        {
+          "userId": "0x90c0bf8d71369d21f8addf0da33d21dcb0b1c384",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xd30edb2f0ca35cba70d10bd3fcce5bbb317c88c7"
+            }
+          }
+        },
+        {
+          "userId": "0x90c0bf8d71369d21f8addf0da33d21dcb0b1c384",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xd30edb2f0ca35cba70d10bd3fcce5bbb317c88c7"
+            }
+          }
+        },
+        {
+          "userId": "0xb59ca4dd00639ad606a61daded286031c3cb2535",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x88b5068c4ed14d69c7093011149e7d5e93a0a98e"
+            }
+          }
+        },
+        {
+          "userId": "0xd430f283c11f3fc8acfd43e63bc2d177fc19f503",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x7c80be56a6f23a3e598822648baafd7524fe1239"
+            }
+          }
+        },
+        {
+          "userId": "0xd430f283c11f3fc8acfd43e63bc2d177fc19f503",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xe3167f148f3c97dea3d42cb9d6848a7d28b3a296"
+            }
+          }
+        },
+        {
+          "userId": "0x2754178a3ca7987eddf56e7b98e8084986748b00",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x88b5068c4ed14d69c7093011149e7d5e93a0a98e"
+            }
+          }
+        },
+        {
+          "userId": "0x7226c7ca07056c655865216e04512e9b28782959",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xdbbf2fa67cfa713b1ab2376a0eef1a34d6f9e8c6"
+            }
+          }
+        },
+        {
+          "userId": "0xe6e99e711d604c6341a5adaa28dbb7a00e2a7616",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x432c27efed615033a7f0c6320e9831332685eb53"
+            }
+          }
+        },
+        {
+          "userId": "0x7226c7ca07056c655865216e04512e9b28782959",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xd398411a691c81e50a1216e287bbe6d5f54fe2cc"
+            }
+          }
+        },
+        {
+          "userId": "0x7226c7ca07056c655865216e04512e9b28782959",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xd398411a691c81e50a1216e287bbe6d5f54fe2cc"
+            }
+          }
+        },
+        {
+          "userId": "0xd430f283c11f3fc8acfd43e63bc2d177fc19f503",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x94d81405985a4c34eac4945d2b98c74258edd07f"
+            }
+          }
+        },
+        {
+          "userId": "0xe6e99e711d604c6341a5adaa28dbb7a00e2a7616",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x432c27efed615033a7f0c6320e9831332685eb53"
+            }
+          }
+        },
+        {
+          "userId": "0xcb6586874cc04b01cc4fdb777de502cea7b3d6c1",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x7c80be56a6f23a3e598822648baafd7524fe1239"
+            }
+          }
+        },
+        {
+          "userId": "0x710c8cf05fdfd4ed321f060f4988629da42b52eb",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xe8f4895df06a0c69a9ba87509efdbbfbafe86c2d"
+            }
+          }
+        },
+        {
+          "userId": "0xcb6586874cc04b01cc4fdb777de502cea7b3d6c1",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x185060149a0fa57aa93afebfad052029129903b2"
+            }
+          }
+        },
+        {
+          "userId": "0xbba693b3cbdc2266a4f6e6b68182b43ebd579f61",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xe8f4895df06a0c69a9ba87509efdbbfbafe86c2d"
+            }
+          }
+        },
+        {
+          "userId": "0x807ed8405211a02c88b70e5a8ccc7e112a36b212",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x88b5068c4ed14d69c7093011149e7d5e93a0a98e"
+            }
+          }
+        },
+        {
+          "userId": "0x0932ababa09744d16d280a190abcc45de6c92d48",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xe8f4895df06a0c69a9ba87509efdbbfbafe86c2d"
+            }
+          }
+        },
+        {
+          "userId": "0xf255c69e2aa13567ae4efbf0e99df89e8a28573d",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xe8f4895df06a0c69a9ba87509efdbbfbafe86c2d"
+            }
+          }
+        },
+        {
+          "userId": "0xcb6586874cc04b01cc4fdb777de502cea7b3d6c1",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x8a16a1ca6c303122e5fa985150a2b742b3aa5fb7"
+            }
+          }
+        },
+        {
+          "userId": "0x542d929ecff6ac4a1f318ea5cded3d4f24dc30aa",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xe8f4895df06a0c69a9ba87509efdbbfbafe86c2d"
+            }
+          }
+        },
+        {
+          "userId": "0xcb6586874cc04b01cc4fdb777de502cea7b3d6c1",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x185060149a0fa57aa93afebfad052029129903b2"
+            }
+          }
+        },
+        {
+          "userId": "0xd430f283c11f3fc8acfd43e63bc2d177fc19f503",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x7c80be56a6f23a3e598822648baafd7524fe1239"
+            }
+          }
+        },
+        {
+          "userId": "0xade38ad7cd00c20cdf60afdd679be32f87b7d802",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x185060149a0fa57aa93afebfad052029129903b2"
+            }
+          }
+        },
+        {
+          "userId": "0x38aff755cac6124b85169483ef7cbd59cac21fb0",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xe8f4895df06a0c69a9ba87509efdbbfbafe86c2d"
+            }
+          }
+        },
+        {
+          "userId": "0xcb6586874cc04b01cc4fdb777de502cea7b3d6c1",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xd30edb2f0ca35cba70d10bd3fcce5bbb317c88c7"
+            }
+          }
+        },
+        {
+          "userId": "0x2e62ee3af78d005a0dffb116295b13ef45b6f2c0",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xd30edb2f0ca35cba70d10bd3fcce5bbb317c88c7"
+            }
+          }
+        },
+        {
+          "userId": "0x2e62ee3af78d005a0dffb116295b13ef45b6f2c0",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xd30edb2f0ca35cba70d10bd3fcce5bbb317c88c7"
+            }
+          }
+        },
+        {
+          "userId": "0xcb6586874cc04b01cc4fdb777de502cea7b3d6c1",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xc90073e1cabcf5069e00c5a6cb10023c9e1d5c4f"
+            }
+          }
+        },
+        {
+          "userId": "0xee61be66cea1ef50e336923ce9f6fb288a2527d7",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xe8f4895df06a0c69a9ba87509efdbbfbafe86c2d"
+            }
+          }
+        },
+        {
+          "userId": "0xcb6586874cc04b01cc4fdb777de502cea7b3d6c1",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x7c80be56a6f23a3e598822648baafd7524fe1239"
+            }
+          }
+        },
+        {
+          "userId": "0x5e334fc2eec978478e84d17446d842bbd8c5af7d",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xe8f4895df06a0c69a9ba87509efdbbfbafe86c2d"
+            }
+          }
+        },
+        {
+          "userId": "0xcb6586874cc04b01cc4fdb777de502cea7b3d6c1",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xe8f4895df06a0c69a9ba87509efdbbfbafe86c2d"
+            }
+          }
+        },
+        {
+          "userId": "0xda496c354459f85a27b37bfb5b1f6500855feaff",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x185060149a0fa57aa93afebfad052029129903b2"
+            }
+          }
+        },
+        {
+          "userId": "0x7226c7ca07056c655865216e04512e9b28782959",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xdbbf2fa67cfa713b1ab2376a0eef1a34d6f9e8c6"
+            }
+          }
+        },
+        {
+          "userId": "0x7226c7ca07056c655865216e04512e9b28782959",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0xbd4b6e9992bef375a14793b18d2a1cc8d710d45b"
+            }
+          }
+        },
+        {
+          "userId": "0x7e504549454f7c070b689edb6054c1fc8c013dfb",
+          "borrowable": {
+            "lendingPool": {
+              "pairId": "0x185060149a0fa57aa93afebfad052029129903b2"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
