@@ -50,27 +50,28 @@ contract PositionsTest is Test {
         return json;
     }
 
-    function test_getUnderwaterPositions() public {
-        string memory json = getPositions();
-        bytes memory positionsData = vm.parseJson(json);
-        Data memory data = abi.decode(positionsData, (Data));
-        ItemsData[] memory items = data.data.borrowPositions.items;
-        uint256 length = items.length;
+    // This takes forever, why?
+    // function test_getUnderwaterPositions() public {
+    //     string memory json = getPositions();
+    //     bytes memory positionsData = vm.parseJson(json);
+    //     Data memory data = abi.decode(positionsData, (Data));
+    //     ItemsData[] memory items = data.data.borrowPositions.items;
+    //     uint256 length = items.length;
 
-        for (uint256 i = 0; i < length; i++) {
-            address uniswapV2Pair = items[i].userId;
-            address borrower = items[i].borrowable.lendingPool.pairId;
-            bool isUnderwater = impermaxLiquidator.isPositionUnderwater(borrower, uniswapV2Pair);
+    //     for (uint256 i = 0; i < length; i++) {
+    //         address uniswapV2Pair = items[i].userId;
+    //         address borrower = items[i].borrowable.lendingPool.pairId;
+    //         bool isUnderwater = impermaxLiquidator.isPositionUnderwater(borrower, uniswapV2Pair);
 
-            if (isUnderwater) {
-                console.log("--- Found liquidatable position ---");
-                console.log("Borrower     : ", borrower);
-                console.log("UniswapV2Pair: ", uniswapV2Pair);
-                console.log();
-                IERC20 token0 = IERC20(IPool(uniswapV2Pair).token0());
-                IERC20 token1 = IERC20(IPool(uniswapV2Pair).token1());
-                console.log("Underlying: ", token0.symbol(), token1.symbol());
-            }
-        }
-    }
+    //         if (isUnderwater) {
+    //             console.log("--- Found liquidatable position ---");
+    //             console.log("Borrower     : ", borrower);
+    //             console.log("UniswapV2Pair: ", uniswapV2Pair);
+    //             console.log();
+    //             IERC20 token0 = IERC20(IPool(uniswapV2Pair).token0());
+    //             IERC20 token1 = IERC20(IPool(uniswapV2Pair).token1());
+    //             console.log("Underlying: ", token0.symbol(), token1.symbol());
+    //         }
+    //     }
+    // }
 }

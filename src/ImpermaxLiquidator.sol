@@ -25,10 +25,8 @@ contract ImpermaxLiquidator is IImpermaxLiquidator {
         // Accrue interest in borrowables and check if position is liquidatable
         if (!_isPositionUnderwater(borrower, collateral, borrowable0, borrowable1)) revert PositionNotLiquidatable();
 
-        // Calculate optimal amount of UniswapV2Pair to flash redeem
+        // Calculate optimal amount of UniswapV2Pair to flash redeem, must be leveraged (ie. borrowed both tokens)
         uint256 flashAmount = optimalFlashRedeem(borrower, borrowable0, borrowable1, collateral);
-
-        // Flash redeem only for leveraged positions (borrowed from both borrowables)
         if (flashAmount == 0) revert InsufficientFlashAmount();
 
         bytes memory data = abi.encode(
