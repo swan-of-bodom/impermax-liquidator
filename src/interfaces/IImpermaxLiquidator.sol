@@ -20,19 +20,14 @@ interface IImpermaxLiquidator {
         IBorrowable borrowable1
     ) external returns (uint256 liquidity, uint256 shortfall);
 
-    function isPositionUnderwater(
-        address borrower,
-        ICollateral collateral,
-        IBorrowable borrowable0,
-        IBorrowable borrowable1
-    ) external returns (bool);
+    function isPositionUnderwater(address borrower, address uniswapV2Pair) external returns (bool);
 
     function optimalFlashRedeem(
         address borrower,
         IBorrowable borrowable0,
         IBorrowable borrowable1,
         ICollateral collateral
-    ) external returns (uint256 flashAmount, uint256 borrow0, uint256 borrow1);
+    ) external returns (uint256 flashAmount);
 
     function flashLiquidate(address borrower, address uniswapV2Pair) external;
 
@@ -51,7 +46,5 @@ interface IImpermaxLiquidator {
         IBorrowable borrowable0;
         IBorrowable borrowable1;
         uint256 flashAmount;
-        uint256 borrow0;
-        uint256 borrow1;
     }
 }

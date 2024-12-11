@@ -4,9 +4,13 @@ out = "out"
 libs = ["lib"]
 build_info = true
 solc_version = "0.8.9"
+fs_permissions = [{ access = "read-write", path = "./"}]
+evm_version = "shanghai"
 
 [rpc_endpoints]
 fantom = "https://rpc.ftm.tools"
-base = "https://mainnet.base.org"
+base = "https://base.llamarpc.com"
+optimism = "https://optimism.llamarpc.com"
+scroll = "https://rpc.scroll.io"
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
